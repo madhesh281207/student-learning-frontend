@@ -1,0 +1,8 @@
+import { Bell, Menu, Search } from 'lucide-react'
+import { NavLink } from 'react-router-dom'
+
+function Header({ onMenuClick }: { onMenuClick: () => void }) {
+  return <header className="sticky top-0 z-30 flex h-16 items-center border-b border-slate-200 bg-white/95 px-4 backdrop-blur sm:px-6"><button type="button" onClick={onMenuClick} className="mr-3 rounded-lg p-2 text-slate-500 hover:bg-slate-100 lg:hidden" aria-label="Open navigation"><Menu className="h-5 w-5" /></button><div className="hidden max-w-md flex-1 md:block"><div className="relative"><Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" /><input type="search" placeholder="Search problems..." className="h-9 w-full rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 text-sm outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-2 focus:ring-indigo-100" /></div></div><div className="ml-auto flex items-center gap-2"><button type="button" className="relative rounded-lg p-2 text-slate-500 hover:bg-slate-100" aria-label="Notifications"><Bell className="h-5 w-5" /><span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-indigo-500" /></button><NavLink to="/profile" className="ml-1 flex items-center gap-2 rounded-lg p-1.5 transition hover:bg-slate-100"><div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-xs font-bold text-indigo-700">DK</div><div className="hidden text-left sm:block"><p className="text-xs font-semibold text-slate-800">Dev Krish</p><p className="text-[10px] text-slate-400">Student</p></div></NavLink></div></header>
+}
+
+export default Header

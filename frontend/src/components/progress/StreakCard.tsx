@@ -1,0 +1,7 @@
+import type { ProgressSummary } from '../../types/progress'
+
+interface StreakCardProps { summary: ProgressSummary }
+
+export default function StreakCard({ summary }: StreakCardProps) {
+  return <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><div className="flex items-start justify-between"><div><p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Consistency</p><h2 className="mt-1 text-xl font-bold text-slate-900">Practice streak</h2></div><div className="text-2xl">🔥</div></div><div className="mt-7 grid grid-cols-2 gap-4"><div className="rounded-xl bg-slate-50 p-5"><p className="text-xs text-slate-500">Current streak</p><p className="mt-2 text-3xl font-bold text-slate-900">{summary.currentStreak}</p><p className="mt-1 text-xs text-slate-500">consecutive days</p></div><div className="rounded-xl bg-slate-50 p-5"><p className="text-xs text-slate-500">Longest streak</p><p className="mt-2 text-3xl font-bold text-slate-900">{summary.longestStreak}</p><p className="mt-1 text-xs text-slate-500">consecutive days</p></div></div><div className="mt-5 rounded-xl border border-slate-200 p-4"><p className="text-sm font-semibold text-slate-900">Keep practicing consistently</p><p className="mt-1 text-sm leading-6 text-slate-500">Regular practice matters more than solving a large number of problems in one session.</p></div></section>
+}

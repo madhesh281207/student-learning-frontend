@@ -1,0 +1,11 @@
+import { ArrowDown, ArrowUp, Minus, Trophy } from 'lucide-react'
+import type { LeaderboardUser } from '../../types/leaderboard'
+
+export default function CurrentUserRank({ user }: { user?: LeaderboardUser }) {
+  if (!user) return null
+
+  const movement = user.rankChange > 0 ? { icon: ArrowUp, text: `+${user.rankChange}`, className: 'text-emerald-600' } : user.rankChange < 0 ? { icon: ArrowDown, text: `${user.rankChange}`, className: 'text-red-500' } : { icon: Minus, text: '0', className: 'text-slate-400' }
+  const MovementIcon = movement.icon
+
+  return <section className="mt-6 overflow-hidden rounded-2xl border border-indigo-100 bg-white"><div className="border-b border-indigo-100 bg-indigo-50/60 px-6 py-4"><div className="flex items-center gap-2"><Trophy className="h-5 w-5 text-indigo-600" /><h2 className="text-sm font-semibold text-indigo-900">Your ranking</h2></div></div><div className="flex flex-col gap-6 p-6 lg:flex-row lg:items-center lg:justify-between"><div className="flex items-center gap-4"><div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-sm font-bold text-indigo-700">{user.firstName[0]}{user.lastName[0]}</div><div><div className="flex items-center gap-2"><h3 className="font-semibold text-slate-900">{user.username}</h3><span className="rounded-full bg-indigo-100 px-2 py-0.5 text-[10px] font-semibold text-indigo-700">You</span></div><p className="mt-1 text-sm text-slate-500">{user.firstName} {user.lastName}</p></div></div><div className="grid grid-cols-2 gap-6 sm:grid-cols-4"><div><p className="text-xs text-slate-400">Rank</p><p className="mt-1 text-xl font-bold text-slate-900">#{user.rank}</p></div><div><p className="text-xs text-slate-400">Score</p><p className="mt-1 text-xl font-bold text-slate-900">{user.score.toLocaleString()}</p></div><div><p className="text-xs text-slate-400">Solved</p><p className="mt-1 text-xl font-bold text-slate-900">{user.solvedProblems}</p></div><div><p className="text-xs text-slate-400">Movement</p><p className={`mt-1 flex items-center gap-1 text-xl font-bold ${movement.className}`}><MovementIcon className="h-4 w-4" />{movement.text}</p></div></div></div></section>
+}

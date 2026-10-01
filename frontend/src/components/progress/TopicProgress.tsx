@@ -1,0 +1,7 @@
+import type { TopicProgress as TopicProgressType } from '../../types/progress'
+
+interface TopicProgressProps { topics: TopicProgressType[] }
+
+export default function TopicProgress({ topics }: TopicProgressProps) {
+  return <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><div className="flex items-end justify-between"><div><p className="text-xs font-semibold uppercase tracking-wider text-slate-400">Topics</p><h2 className="mt-1 text-xl font-bold text-slate-900">Topic coverage</h2></div><span className="text-xs text-slate-400">{topics.length} topics</span></div><div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">{topics.map((topic) => <div key={topic.id} className="rounded-xl border border-slate-100 bg-slate-50 p-4"><div className="flex items-center justify-between gap-3"><p className="text-sm font-semibold text-slate-900">{topic.topic}</p><span className="text-xs font-semibold text-slate-500">{topic.percentage}%</span></div><div className="mt-3 h-1.5 overflow-hidden rounded-full bg-slate-200"><div className="h-full rounded-full bg-slate-800" style={{ width: `${topic.percentage}%` }} /></div><p className="mt-2 text-xs text-slate-500">{topic.solved} of {topic.total} solved</p></div>)}</div></section>
+}
