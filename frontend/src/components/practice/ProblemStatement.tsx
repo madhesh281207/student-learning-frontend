@@ -86,17 +86,20 @@ export default function ProblemStatement({
         </h2>
 
         <ul className="mt-4 space-y-2">
-          {problem.constraints.map(
-            (constraint) => (
+          {problem.constraints.map((constraint, index) => {
+            const value = typeof constraint === 'string' ? constraint : constraint.text
+            const key = typeof constraint === 'string' ? `${value}-${index}` : constraint.id
+
+            return (
               <li
-                key={constraint}
+                key={key}
                 className="flex gap-3 text-sm leading-6 text-gray-600 dark:text-gray-300"
               >
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gray-400" />
-                <span>{constraint}</span>
+                <span>{value}</span>
               </li>
-            ),
-          )}
+            )
+          })}
         </ul>
       </section>
 

@@ -20,16 +20,21 @@ export default function ProblemConstraints({
 
       <div className="rounded-xl border border-slate-200 bg-white p-5 dark:border-slate-800 dark:bg-slate-900">
         <ul className="space-y-3">
-          {constraints.map((constraint) => (
-            <li
-              key={constraint.id}
-              className="flex gap-3 text-sm text-slate-600 dark:text-slate-300"
-            >
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+          {constraints.map((constraint, index) => {
+            const text = typeof constraint === 'string' ? constraint : constraint.text
+            const key = typeof constraint === 'string' ? `${text}-${index}` : constraint.id
 
-              <span>{constraint.text}</span>
-            </li>
-          ))}
+            return (
+              <li
+                key={key}
+                className="flex gap-3 text-sm text-slate-600 dark:text-slate-300"
+              >
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+
+                <span>{text}</span>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>

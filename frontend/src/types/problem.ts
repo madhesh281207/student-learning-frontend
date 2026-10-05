@@ -4,7 +4,9 @@ export type ProblemStatus =
   | "not-started"
   | "attempted"
   | "solved"
-  | "bookmarked";
+  | "bookmarked"
+  | "in-progress"
+  | "completed";
 
 export type SubmissionResult =
   | "Accepted"
@@ -12,18 +14,23 @@ export type SubmissionResult =
   | "Runtime Error"
   | "Time Limit Exceeded"
   | "Compilation Error"
-  | "Pending";
+  | "Pending"
+  | "accepted"
+  | "wrong-answer"
+  | "runtime-error"
+  | "time-limit"
+  | "compile-error"
+  | "pending";
+
+export type ProblemConstraint = string | { id: string; text: string };
 
 export interface ProblemExample {
-  id: string;
+  id?: string;
   input: string;
-  output: string;
+  output?: string;
+  expectedOutput?: string;
+  target?: string | number;
   explanation?: string;
-}
-
-export interface ProblemConstraint {
-  id: string;
-  text: string;
 }
 
 export interface ProblemHint {

@@ -31,7 +31,11 @@ function ProblemDescription({ problem }: ProblemDescriptionProps) {
         <div>
           <h2 className="text-lg font-semibold text-gray-900">Constraints</h2>
           <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-gray-600">
-            {problem.constraints.map((constraint) => <li key={constraint}>{constraint}</li>)}
+            {problem.constraints.map((constraint, index) => {
+              const value = typeof constraint === 'string' ? constraint : constraint.text
+              const key = typeof constraint === 'string' ? `${value}-${index}` : constraint.id
+              return <li key={key}>{value}</li>
+            })}
           </ul>
         </div>
       </div>

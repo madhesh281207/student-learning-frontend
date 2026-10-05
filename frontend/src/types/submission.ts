@@ -5,7 +5,13 @@ export type SubmissionStatus =
   | "time-limit"
   | "memory-limit"
   | "compile-error"
-  | "pending";
+  | "pending"
+  | "Accepted"
+  | "Wrong Answer"
+  | "Runtime Error"
+  | "Time Limit Exceeded"
+  | "Compilation Error"
+  | "Pending";
 
 export type SubmissionLanguage =
   | "javascript"
@@ -15,7 +21,15 @@ export type SubmissionLanguage =
   | "cpp"
   | "c"
   | "go"
-  | "rust";
+  | "rust"
+  | "JavaScript"
+  | "TypeScript"
+  | "Python"
+  | "Java"
+  | "C++"
+  | "C"
+  | "Go"
+  | "Rust";
 
 export type SubmissionFilterStatus =
   | "all"

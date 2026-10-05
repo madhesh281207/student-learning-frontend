@@ -8,13 +8,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 function Button({ variant = 'primary', children, className = '', ...props }: ButtonProps) {
-  const base = 'inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-gray-200 disabled:cursor-not-allowed disabled:opacity-60'
+  const base = 'inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-primary/20 disabled:cursor-not-allowed disabled:opacity-60'
 
   const variants: Record<ButtonVariant, string> = {
-    primary: 'bg-gray-900 text-white hover:bg-gray-800',
-    secondary: 'border border-gray-300 bg-white text-gray-700 hover:bg-gray-50',
-    ghost: 'text-gray-700 hover:bg-gray-100',
-    danger: 'bg-red-600 text-white hover:bg-red-500',
+    primary: 'bg-primary text-black hover:bg-primary-hover',
+    secondary: 'border border-border bg-card text-text hover:bg-card-hover',
+    ghost: 'text-text-secondary hover:bg-card-hover hover:text-text',
+    danger: 'bg-danger text-white hover:bg-danger-light',
   }
 
   return (
